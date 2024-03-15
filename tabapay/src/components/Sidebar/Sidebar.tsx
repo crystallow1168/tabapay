@@ -1,6 +1,8 @@
 import './Sidebar.css';
+import MenuItems from './MenuItems';
+import { useState } from 'react';
 
-const menu: Menu = {
+const sampleMenu: Menu = {
   name: 'Root',
   items: [
     {
@@ -27,38 +29,37 @@ const menu: Menu = {
   ],
 };
 
+export interface MenuItemProps {
+  item: MenuItem;
+};
+
 interface MenuItem {
   name: string;
   items?: MenuItem[];
-}
+};
 
 interface Menu {
   name: string;
   items: MenuItem[];
-}
+};
 
 const SideBar = () => {
-  const renderMenuItem = (menuItem: MenuItem) => {
-    return (
-      <ul key={menuItem.name}>
-        {menuItem.name}
-        {menuItem.items && (
-          <ul>
-            {menuItem.items.map((item) => (
-              <div key={item.name}>{renderMenuItem(item)}</div>
-            ))}
-          </ul>
-        )}
-      </ul>
-    );
+  const { name, items } = sampleMenu;
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleOpen = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
     <div id='sidebar'>
-      <h3>{menu.name}</h3>
-      {menu.items.map((menuItem) => (
-        <div key={menuItem.name}>{renderMenuItem(menuItem)}</div>
-      ))}
+      <div onClick={toggleOpen}>{name}</div>
+      {isOpen &&
+        items.map((menuItem) => (
+          <div key={menuItem.name}>
+            <MenuItems item={menuItem} />
+          </div>
+        ))}
     </div>
   );
 };
