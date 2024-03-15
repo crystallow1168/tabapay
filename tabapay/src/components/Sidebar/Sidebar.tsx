@@ -31,17 +31,17 @@ const sampleMenu: Menu = {
 
 export interface MenuItemProps {
   item: MenuItem;
-};
+}
 
 interface MenuItem {
   name: string;
   items?: MenuItem[];
-};
+}
 
 interface Menu {
   name: string;
   items: MenuItem[];
-};
+}
 
 const SideBar = () => {
   const { name, items } = sampleMenu;
@@ -53,7 +53,10 @@ const SideBar = () => {
 
   return (
     <div id='sidebar'>
-      <div onClick={toggleOpen}>{name}</div>
+      <div onClick={toggleOpen}>
+        <span className={isOpen ? 'arrow-down' : 'arrow-right'}></span>
+        {name}
+      </div>
       {isOpen &&
         items.map((menuItem) => (
           <div key={menuItem.name}>

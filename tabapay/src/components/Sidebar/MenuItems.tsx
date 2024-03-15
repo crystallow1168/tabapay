@@ -1,3 +1,4 @@
+import './Sidebar.css';
 import { FC, useState } from 'react';
 import { MenuItemProps } from './Sidebar';
 
@@ -12,11 +13,18 @@ const MenuItems: FC<MenuItemProps> = ({ item }) => {
 
   return (
     <>
-      <div onClick={toggleOpen}>{name}</div>
+      <div className='menu-item' onClick={toggleOpen}>
+        <span
+          className={items ? (isOpen ? 'arrow-down' : 'arrow-right') : 'dot'}
+        ></span>
+        {name}
+      </div>
       {items && isOpen && (
         <div>
           {items.map((subItem, index) => (
-            <MenuItems key={index} item={subItem} />
+            <div className='menu-item'>
+              <MenuItems key={index} item={subItem} />
+            </div>
           ))}
         </div>
       )}
