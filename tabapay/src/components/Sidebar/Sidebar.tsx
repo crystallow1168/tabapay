@@ -1,44 +1,8 @@
 import './Sidebar.css';
-import MenuItems from './MenuItems';
 import { useCallback, useState } from 'react';
+import MenuItems from './MenuItems';
 import Modal from '../Modal/Modal';
-
-const sampleMenu: Menu = {
-  name: 'Root',
-  items: [
-    {
-      name: 'Parent A',
-      items: [
-        { name: 'Child A1' },
-        {
-          name: 'Child Parent A2',
-          items: [{ name: 'Child A2-1' }, { name: 'Child A2-2' }],
-        },
-      ],
-    },
-    {
-      name: 'Parent B',
-      items: [
-        { name: 'Child B1' },
-        { name: 'Child B2' },
-        {
-          name: 'Child  Parent B3',
-          items: [{ name: 'Child B3-1' }, { name: 'Child B3-2' }],
-        },
-      ],
-    },
-  ],
-};
-
-interface Menu {
-  name: string;
-  items: MenuItem[];
-}
-
-export interface MenuItem {
-  name: string;
-  items?: MenuItem[];
-}
+import sampleMenu from '../../data/sampleMenu.json';
 
 const SideBar = () => {
   const { name, items } = sampleMenu;

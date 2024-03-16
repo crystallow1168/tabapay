@@ -1,6 +1,10 @@
 import './Sidebar.css';
 import { FC, useState } from 'react';
-import { MenuItem } from './Sidebar';
+
+export interface MenuItem {
+  name: string;
+  items?: MenuItem[];
+}
 
 interface MenuItemProps {
   item: MenuItem;
