@@ -1,6 +1,7 @@
 import './Sidebar.css';
 import MenuItems from './MenuItems';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import Modal from '../Modal/Modal';
 
 const sampleMenu: Menu = {
   name: 'Root',
@@ -29,39 +30,62 @@ const sampleMenu: Menu = {
   ],
 };
 
-export interface MenuItemProps {
-  item: MenuItem;
-}
-
-interface MenuItem {
-  name: string;
-  items?: MenuItem[];
-}
-
 interface Menu {
   name: string;
   items: MenuItem[];
 }
 
+export interface MenuItem {
+  name: string;
+  items?: MenuItem[];
+}
+
 const SideBar = () => {
   const { name, items } = sampleMenu;
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [selectedItem, setSelectedItem] = useState<string>('');
 
   const toggleOpen = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prevState) => !prevState);
   };
+
+  const toggleModal = () => {
+    setShowModal((prevState) => !prevState);
+  };
+
+  const handleGetItemName = (itemName: string) => {
+    setSelectedItem(itemName);
+  };
+
+  const handleOpenModal = useCallback(() => {
+    setShowModal(true);
+  }, []);
+
+  const handleSelectedItem = useCallback(
+    (itemName: string) => {
+      toggleOpen();
+      handleGetItemName(itemName);
+      handleOpenModal();
+    },
+    [toggleOpen, handleGetItemName, handleOpenModal]
+  );
 
   return (
     <div id='sidebar'>
-      <div onClick={toggleOpen}>
+      <Modal open={showModal} onClose={toggleModal} itemName={selectedItem} />
+      <div onClick={() => handleSelectedItem(name)}>
         <span className={isOpen ? 'arrow-down' : 'arrow-right'}></span>
         {name}
       </div>
       {isOpen &&
         items.map((menuItem) => (
-          <div key={menuItem.name}>
-            <MenuItems item={menuItem} />
-          </div>
+          <MenuItems
+            key={menuItem.name}
+            item={menuItem}
+            handleGetItemName={handleGetItemName}
+            handleOpenModal={handleOpenModal}
+          />
         ))}
     </div>
   );

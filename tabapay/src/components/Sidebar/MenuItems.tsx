@@ -1,33 +1,47 @@
 import './Sidebar.css';
 import { FC, useState } from 'react';
-import { MenuItemProps } from './Sidebar';
+import { MenuItem } from './Sidebar';
 
-const MenuItems: FC<MenuItemProps> = ({ item }) => {
+interface MenuItemProps {
+  item: MenuItem;
+  handleGetItemName: (itemName: string) => void;
+  handleOpenModal: () => void;
+}
+
+const MenuItems: FC<MenuItemProps> = ({
+  handleOpenModal,
+  handleGetItemName,
+  item,
+}) => {
   const { name, items } = item;
-
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleOpen = () => {
-    setIsOpen(!isOpen);
+  const toggleOpen = (name: string) => {
+    setIsOpen((prevState) => !prevState);
+    handleGetItemName(name);
+    handleOpenModal();
   };
 
   return (
     <>
-      <div className='menu-item' onClick={toggleOpen}>
+      <div className='menu-item' onClick={() => toggleOpen(name)}>
         <span
           className={items ? (isOpen ? 'arrow-down' : 'arrow-right') : 'dot'}
         ></span>
         {name}
       </div>
-      {items && isOpen && (
-        <div>
-          {items.map((subItem, index) => (
-            <div className='menu-item'>
-              <MenuItems key={index} item={subItem} />
-            </div>
-          ))}
-        </div>
-      )}
+      {items &&
+        isOpen &&
+        items.map((subItem) => (
+          <div className='menu-item'>
+            <MenuItems
+              key={subItem.name}
+              item={subItem}
+              handleGetItemName={handleGetItemName}
+              handleOpenModal={handleOpenModal}
+            />
+          </div>
+        ))}
     </>
   );
 };
