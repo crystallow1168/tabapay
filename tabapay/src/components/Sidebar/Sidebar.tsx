@@ -1,5 +1,6 @@
 import './Sidebar.css';
 import { useCallback, useState } from 'react';
+import { Link } from 'react-router-dom';
 import MenuItems from './MenuItems';
 import Modal from '../Modal/Modal';
 import sampleMenu from '../../data/sampleMenu.json';
@@ -38,10 +39,12 @@ const SideBar = () => {
   return (
     <div id='sidebar'>
       <Modal open={showModal} onClose={toggleModal} itemName={selectedItem} />
-      <div onClick={() => handleSelectedItem(name)}>
-        <span className={isOpen ? 'arrow-down' : 'arrow-right'}></span>
-        {name}
-      </div>
+      <Link to={'/contents'} className='menu-item-link'>
+        <div onClick={() => handleSelectedItem(name)}>
+          <span className={isOpen ? 'arrow-down' : 'arrow-right'}></span>
+          {name}
+        </div>
+      </Link>
       {isOpen &&
         items.map((menuItem) => (
           <div className='menu-item' key={menuItem.id}>

@@ -1,5 +1,6 @@
 import './Sidebar.css';
 import { FC, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export interface MenuItem {
   id: string;
@@ -11,6 +12,7 @@ interface MenuItemProps {
   item: MenuItem;
   handleGetItemName: (itemName: string) => void;
   handleOpenModal: () => void;
+  parentPath?: string;
 }
 
 const MenuItems: FC<MenuItemProps> = ({
@@ -18,26 +20,30 @@ const MenuItems: FC<MenuItemProps> = ({
   handleGetItemName,
   item,
 }) => {
-  const { name, items } = item;
   const [isOpen, setIsOpen] = useState(false);
+  const currentPath = `contents/${item.name.replace(/\s+/g, '-')}`;
 
-  const toggleOpen = (name: string) => {
+  const toggleOpen = () => {
     setIsOpen((prevState) => !prevState);
-    handleGetItemName(name);
+    handleGetItemName(item.name);
     handleOpenModal();
   };
 
   return (
     <>
-      <div onClick={() => toggleOpen(name)}>
-        <span
-          className={items ? (isOpen ? 'arrow-down' : 'arrow-right') : 'dot'}
-        ></span>
-        {name}
-      </div>
-      {items &&
+      <Link to={currentPath} state={item} className='menu-item-link'>
+        <div onClick={toggleOpen}>
+          <span
+            className={
+              item.items ? (isOpen ? 'arrow-down' : 'arrow-right') : 'dot'
+            }
+          ></span>
+          {item.name}
+        </div>
+      </Link>
+      {item.items &&
         isOpen &&
-        items.map((subItem) => (
+        item.items.map((subItem) => (
           <div className='menu-item' key={subItem.id}>
             <MenuItems
               item={subItem}
