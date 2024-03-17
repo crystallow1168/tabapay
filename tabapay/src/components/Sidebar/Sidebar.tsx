@@ -1,15 +1,20 @@
 import './Sidebar.css';
-import { useCallback, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MenuItems from './MenuItems';
 import Modal from '../Modal/Modal';
 import sampleMenu from '../../data/sampleMenu.json';
 
-const SideBar = () => {
+interface SidebarProps {
+  handleGetItemName: (itemName: string) => void;
+  selectedItemName: string;
+}
+
+const SideBar: FC<SidebarProps> = ({ handleGetItemName, selectedItemName }) => {
   const { name, items } = sampleMenu;
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [selectedItem, setSelectedItem] = useState<string>('');
+  // const [selectedItem, setSelectedItem] = useState<string>('');
 
   const toggleOpen = () => {
     setIsOpen((prevState) => !prevState);
@@ -19,9 +24,9 @@ const SideBar = () => {
     setShowModal((prevState) => !prevState);
   };
 
-  const handleGetItemName = (itemName: string) => {
-    setSelectedItem(itemName);
-  };
+  // const handleGetItemName = (itemName: string) => {
+  //   setSelectedItem(itemName);
+  // };
 
   const handleOpenModal = useCallback(() => {
     setShowModal(true);
@@ -38,7 +43,11 @@ const SideBar = () => {
 
   return (
     <div id='sidebar'>
-      <Modal open={showModal} onClose={toggleModal} itemName={selectedItem} />
+      <Modal
+        open={showModal}
+        onClose={toggleModal}
+        itemName={selectedItemName}
+      />
       <Link to={'/contents'} className='menu-item-link'>
         <div onClick={() => handleSelectedItem(name)}>
           <span className={isOpen ? 'arrow-down' : 'arrow-right'}></span>
