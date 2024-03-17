@@ -44,12 +44,13 @@ const SideBar = () => {
       </div>
       {isOpen &&
         items.map((menuItem) => (
-          <MenuItems
-            key={menuItem.name}
-            item={menuItem}
-            handleGetItemName={handleGetItemName}
-            handleOpenModal={handleOpenModal}
-          />
+          <div className='menu-item' key={menuItem.id}>
+            <MenuItems
+              item={menuItem}
+              handleGetItemName={handleGetItemName}
+              handleOpenModal={handleOpenModal}
+            />
+          </div>
         ))}
     </div>
   );

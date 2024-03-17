@@ -1,24 +1,68 @@
 {
+  "id": "6e9e409f-45b7-4500-8f2c-a6a3d35a8a89",
   "name": "Root",
+  "path": "/root",
   "items": [
     {
+      "id": "686a898d-e92e-4a21-a9b8-469a9156015c",
       "name": "Parent A",
+      "path": "/parent-a",
       "items": [
-        { "name": "Child A1" },
         {
+          "id": "c5464565-bf28-47cf-84c3-7799945d54ee",
+          "name": "Child A1",
+          "path": "/child-a1"
+        },
+        {
+          "id": "011758ac-9699-4afb-b599-cb0a1c2448cd",
           "name": "Child Parent A2",
-          "items": [{ "name": "Child A2-1" }, { "name": "Child A2-2" }]
+          "path": "/child-parent-a2",
+          "items": [
+            {
+              "id": "5531d33c-21e8-47a2-9257-b6ad5680be46",
+              "name": "Child A2-1",
+              "path": "/child-a2-1"
+            },
+            {
+              "id": "71def53b-1488-4cb8-8497-08ebdd76301e",
+              "name": "Child A2-2",
+              "path": "/child-a2-2"
+            }
+          ]
         }
       ]
     },
     {
+      "id": "605a673c-28fb-4fa8-9946-db310877a9af",
       "name": "Parent B",
+      "path": "/parent-b",
       "items": [
-        { "name": "Child B1" },
-        { "name": "Child B2" },
         {
-          "name": "Child  Parent B3",
-          "items": [{ "name": "Child B3-1" }, { "name": "Child B3-2" }]
+          "id": "843a3161-ea31-4e8b-971f-35e21d89b8d2",
+          "name": "Child B1",
+          "path": "/child-b1"
+        },
+        {
+          "id": "3fe1f5eb-d0bc-4afe-b98b-0bc0be3be5b6",
+          "name": "Child B2",
+          "path": "/child-b2"
+        },
+        {
+          "id": "44eda693-b375-438a-855e-76af25928198",
+          "name": "Child Parent B3",
+          "path": "/child-parent-b3",
+          "items": [
+            {
+              "id": "c5de80dd-44cf-42de-9439-8d12bd3163fe",
+              "name": "Child B3-1",
+              "path": "/child-b3-1"
+            },
+            {
+              "id": "81f182b0-562a-49fb-9500-aae0403248bc",
+              "name": "Child B3-2",
+              "path": "/child-b3-2"
+            }
+          ]
         }
       ]
     }

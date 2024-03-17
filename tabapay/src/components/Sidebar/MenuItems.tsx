@@ -2,6 +2,7 @@ import './Sidebar.css';
 import { FC, useState } from 'react';
 
 export interface MenuItem {
+  id: string;
   name: string;
   items?: MenuItem[];
 }
@@ -28,7 +29,7 @@ const MenuItems: FC<MenuItemProps> = ({
 
   return (
     <>
-      <div className='menu-item' onClick={() => toggleOpen(name)}>
+      <div onClick={() => toggleOpen(name)}>
         <span
           className={items ? (isOpen ? 'arrow-down' : 'arrow-right') : 'dot'}
         ></span>
@@ -37,9 +38,8 @@ const MenuItems: FC<MenuItemProps> = ({
       {items &&
         isOpen &&
         items.map((subItem) => (
-          <div className='menu-item'>
+          <div className='menu-item' key={subItem.id}>
             <MenuItems
-              key={subItem.name}
               item={subItem}
               handleGetItemName={handleGetItemName}
               handleOpenModal={handleOpenModal}
