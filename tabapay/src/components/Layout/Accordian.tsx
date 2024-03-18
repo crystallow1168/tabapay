@@ -18,9 +18,9 @@ const Accordian: FC<LayoutProps> = ({ item }) => {
         <div>{item.name}</div>
         <div className='toggle-icon'>
           {isOpen ? (
-            <i className='fa fa-chevron-circle-down' aria-hidden='true'></i>
-          ) : (
             <i className='fa fa-chevron-circle-up' aria-hidden='true'></i>
+          ) : (
+            <i className='fa fa-chevron-circle-down' aria-hidden='true'></i>
           )}
         </div>
       </div>
