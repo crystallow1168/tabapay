@@ -10,6 +10,7 @@ Node version dependency:  v20.10.0
 2) cd into tabapay
 3) Install dependencies using `npm install`  
 4) Start the development server with `npm run dev`
+5) Checkout to the project part's branch accordingly (refer to Project parts)
 
 ## Project parts 🗂️
 
