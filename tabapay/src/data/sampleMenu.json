@@ -53,6 +53,7 @@
             {
               "id": "20ae694c-006a-4188-9615-369bb1cca92c",
               "name": "Jinxes",
+              "description": "Jinxes are minor curses used to cause inconvenience, discomfort, or mild harm to the target. They are typically considered less severe than curses but more potent than charms. Jinxes can manifest in various forms, such as causing the victim's legs to wobble uncontrollably (Jelly-Legs Jinx), turning bogies into flying bats (Bat-Bogey Hex), or temporarily sealing the victim's mouth shut (Langlock).",
               "items": [
                 {
                   "id": "fc6c4e61-f420-45d7-a5a3-1f7b5afafbf2",
@@ -74,6 +75,7 @@
             {
               "id": "4d3ea146-fe69-4ebd-aaa6-1be2d7bafb2c",
               "name": "Hexes",
+              "description": "Hexes are stronger curses than jinxes, often causing more significant harm or discomfort to the target. They can range from causing physical harm, such as levitating the victim by their ankle (Levicorpus), to inflicting deep lacerations on their body (Sectumsempra), or restraining them with conjured ropes or chains (Incarcerous).",
               "items": [
                 {
                   "id": "8471586d-a966-4ae2-b450-e6935441d019",
@@ -95,6 +97,7 @@
             {
               "id": "f6d12911-cc74-4919-a3ad-c18513ed2ed8",
               "name": "Counter-spells",
+              "description": "Counter-spells are magical incantations used to neutralize or reverse the effects of other spells. They serve as defensive measures against hostile magic or provide solutions to unwanted enchantments. Examples include Finite Incantatem, which stops the effects of many spells, Protego, a shield charm that deflects spells and physical attacks, and Repello Muggletum, which repels Muggles from magical areas. These counter-spells are invaluable tools for wizards and witches in combat or tricky magical situations.",
               "items": [
                 {
                   "id": "35c2c901-96d3-4db4-b880-f49476cc964c",

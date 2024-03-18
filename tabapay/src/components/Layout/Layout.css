@@ -29,14 +29,21 @@
   margin-top: 0.8rem;
 }
 
-.accordian-title {
-  border-bottom: 1px solid var(--primary-color);
+.accordian-header {
   text-transform: uppercase;
   font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .accordian-description {
-  line-height: 1;
+  border-top: 1px solid var(--primary-color);
+  line-height: 1.1;
   font-size: medium;
   padding: 0.5rem 0 0.5rem 0;
+}
+
+.toggle-icon{
+  margin: 0.1rem;
 }

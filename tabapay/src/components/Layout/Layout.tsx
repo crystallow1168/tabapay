@@ -1,13 +1,14 @@
 import { MenuItem } from '../../App';
+import Accordian from './Accordian';
 import './Layout.css';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
 interface LayoutProps {
   selectedMenuItem: MenuItem;
 }
 
 const Layout: FC<LayoutProps> = ({ selectedMenuItem }) => {
-  console.log('WHAT', selectedMenuItem);
+
   return (
     <div id='layout'>
       {selectedMenuItem.name.length ? (
@@ -21,10 +22,7 @@ const Layout: FC<LayoutProps> = ({ selectedMenuItem }) => {
 
       {selectedMenuItem.items
         ? selectedMenuItem.items.map((item) => (
-            <div className='accordian-container' key={item.id}>
-              <div className='accordian-title'>{item.name}</div>
-              <div className='accordian-description'>{item.description}</div>
-            </div>
+          <Accordian item={item}/>
           ))
         : ''}
     </div>
