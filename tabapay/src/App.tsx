@@ -25,25 +25,29 @@ function App() {
 
   return (
     <>
-      <SideBar
-        handleGetMenuItem={handleGetMenuItem}
-        selectedMenuItem={selectedMenuItem}
-      />
-      <Routes>
-        <Route path='/' element={<Navigate to='/contents' />} />{' '}
-        <Route
-          path='/contents'
-          element={<Layout selectedMenuItem={selectedMenuItem} />}
-        >
-          {sampleMenu.items.map((item) => (
-            <Route
-              path={`/contents/:${item.name.replace(/\s+/g, '-')}`}
-              element={<Layout selectedMenuItem={selectedMenuItem} />}
-              key={item.id}
-            />
-          ))}
-        </Route>
-      </Routes>
+      <div className='container'>Header</div>
+      <div className='main-container'>
+        <SideBar
+          handleGetMenuItem={handleGetMenuItem}
+          selectedMenuItem={selectedMenuItem}
+        />
+        <Routes>
+          <Route path='/' element={<Navigate to='/contents' />} />{' '}
+          <Route
+            path='/contents'
+            element={<Layout selectedMenuItem={selectedMenuItem} />}
+          >
+            {sampleMenu.items.map((item) => (
+              <Route
+                path={`/contents/:${item.name.replace(/\s+/g, '-')}`}
+                element={<Layout selectedMenuItem={selectedMenuItem} />}
+                key={item.id}
+              />
+            ))}
+          </Route>
+        </Routes>
+      </div>
+      <div className='container'>Footer</div>
     </>
   );
 }

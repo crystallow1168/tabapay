@@ -70,4 +70,5 @@ ul {
   padding: 1rem;
   background-color: white;
   border-radius: 0.5rem;
+  min-width: 200px;
 }
