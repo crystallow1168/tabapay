@@ -33,7 +33,7 @@ Adds an area on the right to display content corresponding to the selected tree 
 #### Part 4 : Implement header, footer and a logo
 Branch name: `implement-header-and-footer`
 Add a header and footer, including a logo in the header.
-![Header, footer and a logo](https://lh3.googleusercontent.com/drive-viewer/AKGpihYV_Vuncw8q1walqsWY6Rhn-CYdRKcmE7qcYEX6vIQFYvn9f3UFz1smrI1833NGIDB3b7L6OzFx2wnPiPjE_YXThRMf=w893-h1323)
+![Header, footer and a logo](https://lh3.googleusercontent.com/u/2/drive-viewer/AKGpihYV_Vuncw8q1walqsWY6Rhn-CYdRKcmE7qcYEX6vIQFYvn9f3UFz1smrI1833NGIDB3b7L6OzFx2wnPiPjE_YXThRMf=w1478-h1322)
 
 #### Part 5: Implement data with different categories
 Branch name: `implement-data-with-categories`
