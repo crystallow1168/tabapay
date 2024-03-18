@@ -5,11 +5,12 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
-import SideBar from './components/Sidebar/Sidebar';
-import Layout from './components/Layout/Layout';
+
 import sampleMenu from './data/sampleMenu.json';
 import { useCallback, useState } from 'react';
 import Header from './components/Header/Header';
+import SideBar from './components/Sidebar/Sidebar';
+import Layout from './components/Layout/Layout';
 
 export interface MenuItem {
   id: string;
@@ -54,7 +55,7 @@ function App() {
           </Route>
         </Routes>
       </div>
-      <div className='container'>Footer</div>
+      <div className='container'>Welcome to Hogwarts!</div>
     </>
   );
 }

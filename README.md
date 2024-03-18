@@ -7,8 +7,9 @@
 ## Installation 💻
 Node version dependency:  v20.10.0  
 1) Clone the repository to your local machine `gh repo clone crystallow1168/tabapay`  
-2) Install dependencies using `npm install`  
-3) Start the development server with `npm run dev`
+2) cd into tabapay
+3) Install dependencies using `npm install`  
+4) Start the development server with `npm run dev`
 
 ## Project parts 🗂️
 
