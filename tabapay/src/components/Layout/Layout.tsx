@@ -1,15 +1,17 @@
+import { MenuItem } from '../../App';
+import './Layout.css';
 import { FC } from 'react';
 
 interface LayoutProps {
-  selectedItemName: string;
+  selectedMenuItem: MenuItem;
 }
 
-const Layout: FC<LayoutProps> = ({ selectedItemName }) => {
+const Layout: FC<LayoutProps> = ({ selectedMenuItem }) => {
+  const pageTitle = selectedMenuItem?.name || 'Select menu to view content!';
+
   return (
     <>
-      <div>
-        <h1>{selectedItemName}</h1>
-      </div>
+      <div id='layout'>{pageTitle}</div>
     </>
   );
 };
