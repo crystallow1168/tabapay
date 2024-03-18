@@ -7,12 +7,14 @@ interface LayoutProps {
 }
 
 const Layout: FC<LayoutProps> = ({ selectedMenuItem }) => {
-  const pageTitle = selectedMenuItem?.name || 'Select menu to view content!';
-
   return (
-    <>
-      <div id='layout'>{pageTitle}</div>
-    </>
+    <div id='layout'>
+      {selectedMenuItem.name.length ? (
+        <div className='layout-title'>{selectedMenuItem?.name}</div>
+      ) : (
+        <div className='empty-content-container'>Select menu to view content!</div>
+      )}
+    </div>
   );
 };
 

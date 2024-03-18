@@ -8,7 +8,8 @@ import {
 import SideBar from './components/Sidebar/Sidebar';
 import Layout from './components/Layout/Layout';
 import sampleMenu from './data/sampleMenu.json';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import Header from './components/Header/Header';
 
 export interface MenuItem {
   id: string;
@@ -17,15 +18,20 @@ export interface MenuItem {
 }
 
 function App() {
-  const [selectedMenuItem, setSelectedItem] = useState<MenuItem>({});
+  const [selectedMenuItem, setSelectedItem] = useState<MenuItem>({
+    id: '',
+    name: '',
+  });
 
-  const handleGetMenuItem = (menuItem: MenuItem) => {
+  const handleGetMenuItem = useCallback((menuItem: MenuItem) => {
     setSelectedItem(menuItem);
-  };
+  }, []);
 
   return (
     <>
-      <div className='container'>Header</div>
+      <div className='container'>
+        <Header handleGetMenuItem={handleGetMenuItem} />
+      </div>
       <div className='main-container'>
         <SideBar
           handleGetMenuItem={handleGetMenuItem}

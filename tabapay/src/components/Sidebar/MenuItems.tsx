@@ -30,28 +30,30 @@ const MenuItems: FC<MenuItemProps> = ({
 
   return (
     <>
-      <Link
-        to={currentPath}
-        state={item}
-        className={`${'menu-item-link'} ${
-          selectedMenuItem.id === item.id && 'menu-item-selected'
-        }`}
-      >
-        <div onClick={toggleOpen}>
-          <span
-            className={`${
-              item.items
-                ? isOpen
-                  ? 'arrow-down'
-                  : 'arrow-right'
-                : selectedMenuItem.id === item.id
-                ? 'dot selected'
-                : 'dot'
-            }`}
-          ></span>
-          {item.name}
-        </div>
-      </Link>
+      <div className='menu-item-container'>
+        <Link
+          to={currentPath}
+          state={item}
+          className={`${'menu-item-link'} ${
+            selectedMenuItem.id === item.id ? 'menu-item-selected' : ''
+          }`}
+        >
+          <div onClick={toggleOpen}>
+            <span
+              className={`${
+                item.items
+                  ? isOpen
+                    ? 'arrow-down'
+                    : 'arrow-right'
+                  : selectedMenuItem.id === item.id
+                  ? 'dot selected'
+                  : 'dot'
+              }`}
+            ></span>
+            {item.name}
+          </div>
+        </Link>
+      </div>
       {item.items &&
         isOpen &&
         item.items.map((subItem) => (

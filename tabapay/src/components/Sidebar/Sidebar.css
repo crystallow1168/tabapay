@@ -42,16 +42,20 @@ ul {
   margin-left: 1rem;
 }
 
+.menu-item-container {
+  margin: 0.2rem;
+}
+
 .menu-item-link {
   color: var(--primary-color);
   text-decoration: none;
+  font-weight: 500;
 }
-
 
 .menu-item-link:hover {
   color: var(--bg-color);
   background-color: var(--bg-color);
-
+  margin: 0.2rem;
 }
 
 .menu-item-link:hover .dot {
@@ -70,5 +74,5 @@ ul {
   padding: 1rem;
   background-color: white;
   border-radius: 0.5rem;
-  min-width: 200px;
+  min-width: 300px;
 }

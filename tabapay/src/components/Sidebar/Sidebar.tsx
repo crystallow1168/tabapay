@@ -1,5 +1,5 @@
 import './Sidebar.css';
-import { FC, useCallback, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MenuItems from './MenuItems';
 import Modal from '../Modal/Modal';
@@ -33,6 +33,12 @@ const SideBar: FC<SidebarProps> = ({ handleGetMenuItem, selectedMenuItem }) => {
     handleOpenModal();
   }, [toggleOpen, handleGetMenuItem, handleOpenModal]);
 
+  useEffect(() => {
+    if (!selectedMenuItem.name.length) {
+      setIsOpen(false);
+    }
+  }, [selectedMenuItem]);
+
   return (
     <div id='sidebar'>
       <Modal
@@ -40,17 +46,19 @@ const SideBar: FC<SidebarProps> = ({ handleGetMenuItem, selectedMenuItem }) => {
         onClose={toggleModal}
         itemName={selectedMenuItem.name}
       />
-      <Link
-        to={'/contents'}
-        className={`${'menu-item-link'} ${
-          selectedMenuItem.id === sampleMenu.id && 'menu-item-selected'
-        }`}
-      >
-        <div onClick={handleSelectedItem}>
-          <span className={isOpen ? 'arrow-down' : 'arrow-right'}></span>
-          {sampleMenu.name}
-        </div>
-      </Link>
+      <div className='menu-item-container'>
+        <Link
+          to={'/contents'}
+          className={`${'menu-item-link'} ${
+            selectedMenuItem.id === sampleMenu.id ? 'menu-item-selected' : ''
+          }`}
+        >
+          <div onClick={handleSelectedItem}>
+            <span className={isOpen ? 'arrow-down' : 'arrow-right'}></span>
+            {sampleMenu.name}
+          </div>
+        </Link>
+      </div>
       {isOpen &&
         sampleMenu.items?.map((menuItem) => (
           <div className='menu-item' key={menuItem.id}>

@@ -1,66 +1,176 @@
 {
-  "id": "6e9e409f-45b7-4500-8f2c-a6a3d35a8a89",
-  "name": "Root",
-  "path": "/root",
+  "id": "8ddfe4f7-1a1d-4170-b12f-2b2b72c87afb",
+  "name": "Hogwarts",
+  "description": "Welcome to Hogwarts School of Witchcraft and Wizardry, the premier institution for magical education since its founding in the 10th century. Nestled amidst the enchanting Scottish Highlands, Hogwarts stands as a beacon of learning, tradition, and camaraderie for young witches and wizards from all corners of the wizarding world. Our historic castle, with its soaring towers and mystical corridors, provides an unparalleled setting for students to unlock their potential and embark on a journey of discovery. At Hogwarts, we believe in nurturing the talents of each individual, whether they possess a knack for potions, a flair for Quidditch, or a passion for ancient runes. With a distinguished faculty of witches and wizards, state-of-the-art facilities, and a rich tapestry of magical subjects, Hogwarts offers a comprehensive education that prepares students for the challenges and adventures that lie ahead. Join us at Hogwarts, where the magic of learning knows no bounds.",
   "items": [
     {
-      "id": "686a898d-e92e-4a21-a9b8-469a9156015c",
-      "name": "Parent A",
-      "path": "/parent-a",
+      "id": "897eeffc-1975-4cfb-9c00-eff8785b11b2",
+      "name": "Classes",
+      "description": "At Hogwarts School of Witchcraft and Wizardry, students embark on a comprehensive magical education through a diverse array of classes. From the intricate art of potion-making and the enchanting world of spells and charms to the transformative magic of transfiguration and the vital skills of defense against dark arts, each subject offers a unique opportunity for students to hone their magical abilities and expand their knowledge of the wizarding world. Led by esteemed professors, students delve into the mysteries of herbology, explore the prophetic arts of divination, and uncover the secrets of wizarding history. Together, these classes form the cornerstone of a Hogwarts education, preparing students for the challenges and adventures that lie ahead in their magical journey.",
       "items": [
         {
-          "id": "c5464565-bf28-47cf-84c3-7799945d54ee",
-          "name": "Child A1",
-          "path": "/child-a1"
-        },
-        {
-          "id": "011758ac-9699-4afb-b599-cb0a1c2448cd",
-          "name": "Child Parent A2",
-          "path": "/child-parent-a2",
+          "id": "7c18a7cd-a616-4ad3-8cf7-f5720ea94f12",
+          "name": "Charms",
+          "description": "In the Charms classroom, students are introduced to the captivating world of spells and enchantments. Under the guidance of our Charms Professor, students learn to wield their wands with confidence, mastering incantations that range from the whimsical to the formidable. From summoning objects with Accio to charming broomsticks to fly, students develop a deep understanding of the magic that surrounds them.",
           "items": [
             {
-              "id": "5531d33c-21e8-47a2-9257-b6ad5680be46",
-              "name": "Child A2-1",
-              "path": "/child-a2-1"
+              "id": "edcfbf7f-aafd-490d-b8f8-ea0df229ad80",
+              "name": "Wingardium Leviosa",
+              "description": "A charm used to levitate objects. It is one of the first spells learned by Hogwarts students and is famously taught by Professor Flitwick."
             },
             {
-              "id": "71def53b-1488-4cb8-8497-08ebdd76301e",
-              "name": "Child A2-2",
-              "path": "/child-a2-2"
+              "id": "74406955-bead-4ea9-9234-1e67acd180a7",
+              "name": "Lumos",
+              "description": "This charm illuminates the tip of the caster's wand, providing light in dark environments. It's commonly used for navigating in the dark."
+            },
+            {
+              "id": "35b581f8-924c-4c62-bbdc-f05377ad0298",
+              "name": "Accio",
+              "description": "Also known as the Summoning Charm, Accio is used to summon objects to the caster. It's handy for retrieving items that are out of reach."
+            },
+            {
+              "id": "d3abe0f7-dbc3-4720-9130-1e386c8d86fb",
+              "name": "Alohomora",
+              "description": "This spell is used to unlock doors and other locked objects. It's particularly useful for bypassing obstacles."
+            },
+            {
+              "id": "6fe6a60d-3c51-471f-8a83-ce8a5f1a709f",
+              "name": "Expecto Patronum",
+              "description": "A powerful defensive spell used to conjure a Patronus, a corporeal guardian of positive energy, which protects the caster from Dementors and other dark creatures."
+            },
+            {
+              "id": "f8ee230b-a128-400d-b35f-fb243dbc0bc5",
+              "name": "Expelliarmus",
+              "description": "This disarming charm causes the target's wand to fly out of their hand, effectively disarming them. It's often used in dueling and combat situations."
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "605a673c-28fb-4fa8-9946-db310877a9af",
-      "name": "Parent B",
-      "path": "/parent-b",
-      "items": [
-        {
-          "id": "843a3161-ea31-4e8b-971f-35e21d89b8d2",
-          "name": "Child B1",
-          "path": "/child-b1"
         },
         {
-          "id": "3fe1f5eb-d0bc-4afe-b98b-0bc0be3be5b6",
-          "name": "Child B2",
-          "path": "/child-b2"
-        },
-        {
-          "id": "44eda693-b375-438a-855e-76af25928198",
-          "name": "Child Parent B3",
-          "path": "/child-parent-b3",
+          "id": "f31d82d7-9118-44b2-82e3-9af18fdfa759",
+          "name": "Defense Against the Dark Arts",
+          "description": "Defense Against the Dark Arts is a cornerstone of a Hogwarts education, equipping students with the skills to confront the darkest forces of the wizarding world. Led by a rotating roster of experienced witches and wizards, students learn to recognize and counter curses, hexes, and other malevolent magic through practical exercises and theoretical study. In this vital class, students learn that courage, knowledge, and vigilance are their greatest weapons against the forces of darkness.",
           "items": [
             {
-              "id": "c5de80dd-44cf-42de-9439-8d12bd3163fe",
-              "name": "Child B3-1",
-              "path": "/child-b3-1"
+              "id": "20ae694c-006a-4188-9615-369bb1cca92c",
+              "name": "Jinxes",
+              "items": [
+                {
+                  "id": "fc6c4e61-f420-45d7-a5a3-1f7b5afafbf2",
+                  "name": "Jelly-Legs Jinx",
+                  "description": "This jinx causes the victim's legs to wobble uncontrollably, making it difficult for them to stand or walk properly."
+                },
+                {
+                  "id": "9e34b3d0-5d4e-4bc5-b98b-b54852935c0e",
+                  "name": "Bat-Bogey Hex",
+                  "description": "A hex that causes the victim's bogies to turn into large, flying bats. It's often used as a form of humiliation or punishment."
+                },
+                {
+                  "id": "c5c643df-84c9-4b63-8e90-7ec95a339618",
+                  "name": "Langlock",
+                  "description": "This spell causes the victim's tongue to stick to the roof of their mouth, preventing them from speaking. It's a useful spell for silencing opponents."
+                }
+              ]
             },
             {
-              "id": "81f182b0-562a-49fb-9500-aae0403248bc",
-              "name": "Child B3-2",
-              "path": "/child-b3-2"
+              "id": "4d3ea146-fe69-4ebd-aaa6-1be2d7bafb2c",
+              "name": "Hexes",
+              "items": [
+                {
+                  "id": "8471586d-a966-4ae2-b450-e6935441d019",
+                  "name": "Levicorpus",
+                  "description": "This hex causes the victim to be hoisted into the air by their ankle. It's often used as a form of non-lethal restraint."
+                },
+                {
+                  "id": "cf7ce086-2a51-49f1-b8d4-109925e40e99",
+                  "name": "Sectumsempra",
+                  "description": "A powerful curse that causes deep lacerations to appear on the victim's body. It's known for its severity and is considered dark magic."
+                },
+                {
+                  "id": "5e9b6141-4811-4a74-ae17-8b9fcaf96615",
+                  "name": "Incarcerous",
+                  "description": "This spell conjures ropes or chains to bind the target, effectively restraining them."
+                }
+              ]
+            },
+            {
+              "id": "f6d12911-cc74-4919-a3ad-c18513ed2ed8",
+              "name": "Counter-spells",
+              "items": [
+                {
+                  "id": "35c2c901-96d3-4db4-b880-f49476cc964c",
+                  "name": "Finite Incantatem",
+                  "description": "A counter-spell used to stop or reverse the effects of many spells. It's commonly used to end enchantments or charms."
+                },
+                {
+                  "id": "fea4f2db-6988-4cbf-a9aa-44ea2ae5e6cd",
+                  "name": "Protego",
+                  "description": "A defensive charm used to create a magical barrier or shield, protecting the caster from spells or physical attacks."
+                },
+                {
+                  "id": "ecfa2da9-01ef-4172-b682-6423d73093ef",
+                  "name": "Repello Muggletum",
+                  "description": "This charm repels Muggles from an area, making it so they are less likely to notice magical occurrences or objects."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "954f52d0-2874-4083-aa9a-119b232a22de",
+          "name": "Divination",
+          "description": "The Divination classroom offers students a glimpse into the mysteries of the future. Led by the eccentric Professor Trelawney, students explore various methods of prophecy, from crystal ball gazing to tea leaf reading. While the subject is often met with skepticism, those who possess the gift of second sight may find themselves drawn to this fascinating class, where the lines between past, present, and future blur."
+        },
+        {
+          "id": "a316cc5e-5c27-4111-8091-a04c8658ad42",
+          "name": "Herbology",
+          "description": "In the greenhouses of Hogwarts, students explore the magical properties of plants and fungi in the Herbology class. Led by the knowledgeable Professor Sprout, students learn to cultivate Mandrakes, study the healing properties of rare herbs, and care for magical flora from around the world. Through hands-on experience and theoretical study, students gain a deep appreciation for the natural world and the magic it contains."
+        },
+        {
+          "id": "86d40646-9413-40e8-9ab8-602966a8f05c",
+          "name": "History of Magic",
+          "description": "Led by the ghostly Professor Binns, History of Magic invites students on a journey through the centuries to explore the rich tapestry of wizarding history. From the rise and fall of magical civilizations to the great wizarding wars, students gain a deeper understanding of the events that shaped the world they inhabit. In this class, the past comes alive, offering valuable lessons for the present and future alike."
+        },
+        {
+          "id": "03da2d3d-c659-474e-a1b9-b3b6a8d7a11f",
+          "name": "Potions",
+          "description": "At Hogwarts, the study of Potions is an intricate blend of art and science. Led by our esteemed Potions Master, students embark on a journey into the world of magical mixtures. From concocting Polyjuice Potion to mastering the subtle nuances of Amortentia, students learn to brew with precision and finesse, discovering the secrets that lie within each cauldron bubble.",
+          "items": [
+            {
+              "id": "c39a3438-e184-46a6-ac64-d36e8bedcf5b",
+              "name": "Episkey",
+              "description": "A healing spell used to mend minor injuries such as cuts, bruises, or broken noses. It's often used in first aid situations."
+            },
+            {
+              "id": "7c98948b-14cc-4738-9a12-72296f29903a",
+              "name": "Vulnera Sanentur",
+              "description": "A more advanced healing spell used to heal wounds and injuries. It's capable of healing more severe wounds than Episkey."
+            },
+            {
+              "id": "7042cfbd-75e6-4892-816d-687be4706ff8",
+              "name": "Mandrake Restorative Draught",
+              "description": "A potion made from Mandrake roots, used to cure those who have been petrified. It's a potent restorative potion."
+            }
+          ]
+        },
+        {
+          "id": "89565244-582c-4060-8b1e-106cb307597d",
+          "name": "Transfiguration",
+          "description": "Transfiguration, taught by the venerable Professor McGonagall, challenges students to unlock the power of transformation. From changing teacups into tortoises to mastering the complex art of Animagus transformation, students explore the boundaries of magical metamorphosis. With dedication and practice, students learn to harness their innate abilities to shape the world around them.",
+          "items": [
+            {
+              "id": "d539d2db-2b51-43e0-9537-ff34c1f04665",
+              "name": "Reparo",
+              "description": "A transfiguration spell used to repair broken objects. It can mend anything from shattered glass to broken wands."
+            },
+            {
+              "id": "9293a64b-0db1-4b7e-af7d-c12112c1a5bf",
+              "name": "Animagus transformation",
+              "description": "This complex transfiguration spell allows a wizard or witch to transform into an animal at will. It requires great skill and is subject to strict regulations."
+            },
+            {
+              "id": "ff26e14d-7be3-4f50-b8c1-5f0663ed6a6d",
+              "name": "Vanishing Spell",
+              "description": "This spell causes objects to vanish or disappear. It's particularly useful for cleaning up messes or making objects disappear temporarily."
             }
           ]
         }
