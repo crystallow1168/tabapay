@@ -1,0 +1,26 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#header {
+  background-color: red;
+}
+
+.main-container {
+  display: flex;
+  flex-grow: 1;
+  margin: 0 1rem 0 1rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  height: 3rem;
+}

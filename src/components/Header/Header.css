@@ -1,0 +1,12 @@
+.logo {
+  margin-right: auto;
+}
+
+.header {
+  flex-grow: 3;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: xx-large;
+  font-weight: 800;
+  position: absolute;
+}
