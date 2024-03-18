@@ -16,3 +16,6 @@ Branch name: implement-contents-page
 
 ### Part 4 : Implement header, footer annd a logo
 Branch name: implement-header-and-footer
+
+### Part 5: Implement data with different categories
+Branch name: implement-data-with-categories

@@ -14,6 +14,7 @@ import Header from './components/Header/Header';
 export interface MenuItem {
   id: string;
   name: string;
+  description?: string;
   items?: MenuItem[];
 }
 

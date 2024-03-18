@@ -4,6 +4,8 @@
   padding: 1rem;
   background-color: white;
   border-radius: 0.5rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 16rem);
 }
 
 .layout-title {
@@ -18,4 +20,23 @@
   align-items: center;
   height: 100%;
   color: var(--grey-color);
+}
+
+.accordian-container {
+  padding: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.accordian-title {
+  border-bottom: 1px solid var(--primary-color);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.accordian-description {
+  line-height: 1;
+  font-size: medium;
+  padding: 0.5rem 0 0.5rem 0;
 }
