@@ -1,16 +1,21 @@
 import { MenuItem } from '../../App';
 import './Layout.css';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 interface LayoutProps {
   item: MenuItem;
+  selectedMenuItem: MenuItem;
 }
 
-const Accordian: FC<LayoutProps> = ({ item }) => {
+const Accordian: FC<LayoutProps> = ({ item, selectedMenuItem }) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const toggleAccordian = () => {
     setIsOpen((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    setIsOpen(true);
+  }, [selectedMenuItem])
 
   return (
     <div className='accordian-container' key={item.id}>
