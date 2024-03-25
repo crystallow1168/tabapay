@@ -1,6 +1,5 @@
 import './Sidebar.css';
-import { FC, useCallback, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { FC, useCallback, useState } from 'react';
 import MenuItems from './MenuItems';
 import Modal from '../Modal/Modal';
 import sampleMenu from '../../data/sampleMenu.json';
@@ -12,12 +11,8 @@ interface SidebarProps {
 }
 
 const SideBar: FC<SidebarProps> = ({ handleGetMenuItem, selectedMenuItem }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
-
-  const toggleOpen = () => {
-    setIsOpen((prevState) => !prevState);
-  };
+  const [menuIdList, setMenuIdList] = useState<string[]>([]);
 
   const toggleModal = () => {
     setShowModal((prevState) => !prevState);
@@ -27,17 +22,31 @@ const SideBar: FC<SidebarProps> = ({ handleGetMenuItem, selectedMenuItem }) => {
     setShowModal(true);
   }, []);
 
-  const handleSelectedItem = useCallback(() => {
-    toggleOpen();
-    handleGetMenuItem(sampleMenu);
-    handleOpenModal();
-  }, [toggleOpen, handleGetMenuItem, handleOpenModal]);
+  const handleParentToggle = (
+    currentItemId: string,
+    currentList: string[],
+    parentId: string
+  ) => {
+    setMenuIdList((prevList) => {
+      if (currentList === undefined) {
+        return [...prevList, currentItemId];
+      } else {
+        const parentIndex = currentList.indexOf(parentId);
+        const newList = currentList.slice(0, parentIndex + 1);
+        newList.push(currentItemId);
+        return newList;
+      }
+    });
+  };
 
-  useEffect(() => {
-    if (!selectedMenuItem.name.length) {
-      setIsOpen(false);
-    }
-  }, [selectedMenuItem]);
+  const handleSelectedItem = useCallback(
+    (item: MenuItem, menuIdList: string[], parentId: string) => {
+      handleGetMenuItem(item);
+      handleParentToggle(item.id, menuIdList, parentId);
+      handleOpenModal();
+    },
+    [handleGetMenuItem, handleOpenModal]
+  );
 
   return (
     <div id='sidebar'>
@@ -47,29 +56,15 @@ const SideBar: FC<SidebarProps> = ({ handleGetMenuItem, selectedMenuItem }) => {
         itemName={selectedMenuItem.name}
       />
       <div className='menu-item-container'>
-        <Link
-          to={'/contents'}
-          className={`${'menu-item-link'} ${
-            selectedMenuItem.id === sampleMenu.id ? 'menu-item-selected' : ''
-          }`}
-        >
-          <div onClick={handleSelectedItem}>
-            <span className={isOpen ? 'arrow-down' : 'arrow-right'}></span>
-            {sampleMenu.name}
-          </div>
-        </Link>
+        <MenuItems
+          item={sampleMenu}
+          selectedMenuItem={selectedMenuItem}
+          handleSelectedItem={handleSelectedItem}
+          handleOpenModal={handleOpenModal}
+          menuIdList={menuIdList}
+          parentId={sampleMenu.id}
+        />
       </div>
-      {isOpen &&
-        sampleMenu.items?.map((menuItem) => (
-          <div className='menu-item' key={menuItem.id}>
-            <MenuItems
-              item={menuItem}
-              selectedMenuItem={selectedMenuItem}
-              handleGetMenuItem={handleGetMenuItem}
-              handleOpenModal={handleOpenModal}
-            />
-          </div>
-        ))}
     </div>
   );
 };

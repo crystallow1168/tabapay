@@ -1,7 +1,7 @@
 import { MenuItem } from '../../App';
 import Accordian from './Accordian';
 import './Layout.css';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 interface LayoutProps {
   selectedMenuItem: MenuItem;
@@ -22,7 +22,7 @@ const Layout: FC<LayoutProps> = ({ selectedMenuItem }) => {
 
       {selectedMenuItem.items
         ? selectedMenuItem.items.map((item) => (
-          <Accordian item={item}/>
+          <Accordian key={item.id} item={item} selectedMenuItem={selectedMenuItem}/>
           ))
         : ''}
     </div>

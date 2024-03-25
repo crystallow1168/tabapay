@@ -1,21 +1,25 @@
 import './Sidebar.css';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MenuItem } from '../../App';
 
 interface MenuItemProps {
   item: MenuItem;
   selectedMenuItem: MenuItem;
-  handleGetMenuItem: (itemName: MenuItem) => void;
+  handleSelectedItem: (itemName: MenuItem, menuIdList: string[], parentId: string) => void;
   handleOpenModal: () => void;
   parentPath?: string;
+  menuIdList: string[];
+  parentId: string;
 }
 
 const MenuItems: FC<MenuItemProps> = ({
   item,
   selectedMenuItem,
-  handleGetMenuItem,
+  handleSelectedItem,
   handleOpenModal,
+  menuIdList,
+  parentId
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const currentPath = `contents/${item.name?.replace(/\s+/g, '-')}`;
@@ -23,10 +27,18 @@ const MenuItems: FC<MenuItemProps> = ({
   const toggleOpen = () => {
     setIsOpen((prevState) => !prevState);
     if (item) {
-      handleGetMenuItem(item);
+      handleSelectedItem(item, menuIdList, parentId);
       handleOpenModal();
     }
   };
+
+  useEffect(() => {
+    if (menuIdList?.includes(item.id)) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
+  }, [menuIdList]);
 
   return (
     <>
@@ -61,8 +73,10 @@ const MenuItems: FC<MenuItemProps> = ({
             <MenuItems
               item={subItem}
               selectedMenuItem={selectedMenuItem}
-              handleGetMenuItem={handleGetMenuItem}
+              handleSelectedItem={handleSelectedItem}
               handleOpenModal={handleOpenModal}
+              menuIdList={menuIdList}
+              parentId={item.id}
             />
           </div>
         ))}
