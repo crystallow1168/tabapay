@@ -30,6 +30,14 @@ const SideBar: FC<SidebarProps> = ({ handleGetMenuItem, selectedMenuItem }) => {
     setMenuIdList((prevList) => {
       if (currentList === undefined) {
         return [...prevList, currentItemId];
+      } else if (prevList[prevList.length - 1] === currentItemId){
+        const newList = prevList;
+        prevList.pop();
+        return newList;
+      } else if (prevList.includes(currentItemId)){
+        const currentItemIndex = prevList.indexOf(currentItemId);
+        const newList = prevList.slice(0, currentItemIndex);
+        return newList;
       } else {
         const parentIndex = currentList.indexOf(parentId);
         const newList = currentList.slice(0, parentIndex + 1);
