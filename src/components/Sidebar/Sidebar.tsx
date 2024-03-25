@@ -12,6 +12,7 @@ interface SidebarProps {
 
 const SideBar: FC<SidebarProps> = ({ handleGetMenuItem, selectedMenuItem }) => {
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [menuIdList, setMenuIdList] = useState<string[]>([]);
 
   const toggleModal = () => {
     setShowModal((prevState) => !prevState);
@@ -21,10 +22,31 @@ const SideBar: FC<SidebarProps> = ({ handleGetMenuItem, selectedMenuItem }) => {
     setShowModal(true);
   }, []);
 
-  const handleSelectedItem = useCallback((item: MenuItem) => {
-    handleGetMenuItem(item);
-    handleOpenModal();
-  }, [handleGetMenuItem, handleOpenModal]);
+  const handleParentToggle = (
+    currentItemId: string,
+    currentList: string[],
+    parentId: string
+  ) => {
+    setMenuIdList((prevList) => {
+      if (currentList === undefined) {
+        return [...prevList, currentItemId];
+      } else {
+        const parentIndex = currentList.indexOf(parentId);
+        const newList = currentList.slice(0, parentIndex + 1);
+        newList.push(currentItemId);
+        return newList;
+      }
+    });
+  };
+
+  const handleSelectedItem = useCallback(
+    (item: MenuItem, menuIdList: string[], parentId: string) => {
+      handleGetMenuItem(item);
+      handleParentToggle(item.id, menuIdList, parentId);
+      handleOpenModal();
+    },
+    [handleGetMenuItem, handleOpenModal]
+  );
 
   return (
     <div id='sidebar'>
@@ -39,6 +61,8 @@ const SideBar: FC<SidebarProps> = ({ handleGetMenuItem, selectedMenuItem }) => {
           selectedMenuItem={selectedMenuItem}
           handleSelectedItem={handleSelectedItem}
           handleOpenModal={handleOpenModal}
+          menuIdList={menuIdList}
+          parentId={sampleMenu.id}
         />
       </div>
     </div>
