@@ -6,7 +6,7 @@ import { MenuItem } from '../../App';
 interface MenuItemProps {
   item: MenuItem;
   selectedMenuItem: MenuItem;
-  handleGetMenuItem: (itemName: MenuItem) => void;
+  handleSelectedItem: (itemName: MenuItem) => void;
   handleOpenModal: () => void;
   parentPath?: string;
 }
@@ -14,7 +14,7 @@ interface MenuItemProps {
 const MenuItems: FC<MenuItemProps> = ({
   item,
   selectedMenuItem,
-  handleGetMenuItem,
+  handleSelectedItem,
   handleOpenModal,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +23,7 @@ const MenuItems: FC<MenuItemProps> = ({
   const toggleOpen = () => {
     setIsOpen((prevState) => !prevState);
     if (item) {
-      handleGetMenuItem(item);
+      handleSelectedItem(item);
       handleOpenModal();
     }
   };
@@ -61,7 +61,7 @@ const MenuItems: FC<MenuItemProps> = ({
             <MenuItems
               item={subItem}
               selectedMenuItem={selectedMenuItem}
-              handleGetMenuItem={handleGetMenuItem}
+              handleSelectedItem={handleSelectedItem}
               handleOpenModal={handleOpenModal}
             />
           </div>

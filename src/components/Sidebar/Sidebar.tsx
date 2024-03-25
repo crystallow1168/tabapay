@@ -1,6 +1,5 @@
 import './Sidebar.css';
-import { FC, useCallback, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { FC, useCallback, useState } from 'react';
 import MenuItems from './MenuItems';
 import Modal from '../Modal/Modal';
 import sampleMenu from '../../data/sampleMenu.json';
@@ -12,12 +11,7 @@ interface SidebarProps {
 }
 
 const SideBar: FC<SidebarProps> = ({ handleGetMenuItem, selectedMenuItem }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
-
-  const toggleOpen = () => {
-    setIsOpen((prevState) => !prevState);
-  };
 
   const toggleModal = () => {
     setShowModal((prevState) => !prevState);
@@ -27,17 +21,10 @@ const SideBar: FC<SidebarProps> = ({ handleGetMenuItem, selectedMenuItem }) => {
     setShowModal(true);
   }, []);
 
-  const handleSelectedItem = useCallback(() => {
-    toggleOpen();
-    handleGetMenuItem(sampleMenu);
+  const handleSelectedItem = useCallback((item: MenuItem) => {
+    handleGetMenuItem(item);
     handleOpenModal();
-  }, [toggleOpen, handleGetMenuItem, handleOpenModal]);
-
-  useEffect(() => {
-    if (!selectedMenuItem.name.length) {
-      setIsOpen(false);
-    }
-  }, [selectedMenuItem]);
+  }, [handleGetMenuItem, handleOpenModal]);
 
   return (
     <div id='sidebar'>
@@ -47,29 +34,13 @@ const SideBar: FC<SidebarProps> = ({ handleGetMenuItem, selectedMenuItem }) => {
         itemName={selectedMenuItem.name}
       />
       <div className='menu-item-container'>
-        <Link
-          to={'/contents'}
-          className={`${'menu-item-link'} ${
-            selectedMenuItem.id === sampleMenu.id ? 'menu-item-selected' : ''
-          }`}
-        >
-          <div onClick={handleSelectedItem}>
-            <span className={isOpen ? 'arrow-down' : 'arrow-right'}></span>
-            {sampleMenu.name}
-          </div>
-        </Link>
+        <MenuItems
+          item={sampleMenu}
+          selectedMenuItem={selectedMenuItem}
+          handleSelectedItem={handleSelectedItem}
+          handleOpenModal={handleOpenModal}
+        />
       </div>
-      {isOpen &&
-        sampleMenu.items?.map((menuItem) => (
-          <div className='menu-item' key={menuItem.id}>
-            <MenuItems
-              item={menuItem}
-              selectedMenuItem={selectedMenuItem}
-              handleGetMenuItem={handleGetMenuItem}
-              handleOpenModal={handleOpenModal}
-            />
-          </div>
-        ))}
     </div>
   );
 };
